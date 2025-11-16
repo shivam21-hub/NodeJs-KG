@@ -4,21 +4,16 @@ const path = require('path');
 // External Module
 const express = require('express');
 
+const app = express();
+
 //Local Module
 const storeRouter = require("./routes/storeRouter")
 const hostRouter = require("./routes/hostRouter")
 const rootDir = require("./utils/pathUtil");
 const errorsControllers  = require('./controllers/errors');
 
-const db = require("./utils/databaseUtil")
 
-db.execute('SELECT * FROM homes')
-.then(([rows, fields])=>{
-  console.log("Results of database", rows)
-})
-.catch(error =>{
-  console.log("Error while reading db", error)
-})
+
 
 
 
